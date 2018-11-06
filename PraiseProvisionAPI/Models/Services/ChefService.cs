@@ -30,7 +30,7 @@ namespace PraiseProvisionAPI.Models.Services
 
         public async Task<Chef> GetChef(int? id)
         {
-            return _context.Chefs.FirstOrDefault(x => x.ID == id);
+            return await _context.Chefs.FirstOrDefaultAsync(x => x.ID == id);
         }
 
         public async Task<IEnumerable<Chef>> GetChefs()
@@ -38,9 +38,11 @@ namespace PraiseProvisionAPI.Models.Services
             return await _context.Chefs.ToListAsync();
         }
 
-        public Task UpdateChef(Chef chef)
+        public async Task UpdateChef(Chef chef)
         {
-            throw new NotImplementedException();
+            await _context.Chefs.AddAsync(chef);
+            await _context.SaveChangesAsync();
+
         }
     }
 }

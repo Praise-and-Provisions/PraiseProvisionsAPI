@@ -30,9 +30,9 @@ namespace PraiseProvisionsAPI.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public ActionResult<IActionResult> Get(int id)
+        public async Task<ActionResult<IActionResult>> Get(int id)
         {
-            var chef = _context.GetChef(id);
+            var chef = await _context.GetChef(id);
             if (chef == null)
             {
                 return NotFound();
@@ -40,44 +40,43 @@ namespace PraiseProvisionsAPI.Controllers
             return Ok(chef);
         }
 
-        //// POST api/<controller>
-        //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody]Chef chef)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // POST api/<controller>
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]Chef chef)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    await _context.Chefs.AddAsync(chef);
-        //    await _context.SaveChangesAsync();
+            await _context.CreateChef(chef);
 
-        //    return CreatedAtAction("Get", new { id = chef.ID }, chef);
-        //}
+            return CreatedAtAction("Get", new { id = chef.ID }, chef);
+        }
 
-        //// PUT api/<controller>/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
-        //{
+        // PUT api/<controller>/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
+        {
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var found = _context.Chefs.Where(x => x.ID == id);
+            var found = _context.GetChef(id);
 
-        //    if (found != null)
-        //    {
-        //        _context.Chefs.Update(chef);
-        //    }
-        //    else
-        //    {
-        //        await Post(chef);
-        //    }
+            if (found != null)
+            {
+                await _context.UpdateChef(chef);
+            }
+            else
+            {
+                await Post(chef);
+            }
 
-        //    return RedirectToAction("Get", new { id = chef.ID });
-        //}
+            return RedirectToAction("Get", new { id = chef.ID });
+        }
 
         //// DELETE api/<controller>/5
         //[HttpDelete("{id}")]
