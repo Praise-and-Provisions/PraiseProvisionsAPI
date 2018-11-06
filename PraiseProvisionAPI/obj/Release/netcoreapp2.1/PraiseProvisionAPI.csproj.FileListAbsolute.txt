@@ -1,0 +1,15 @@
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\bin\Release\netcoreapp2.1\PraiseProvisionAPI.deps.json
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\bin\Release\netcoreapp2.1\PraiseProvisionAPI.runtimeconfig.json
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\bin\Release\netcoreapp2.1\PraiseProvisionAPI.runtimeconfig.dev.json
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\bin\Release\netcoreapp2.1\PraiseProvisionAPI.dll
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\bin\Release\netcoreapp2.1\PraiseProvisionAPI.pdb
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.csprojAssemblyReference.cache
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.csproj.CoreCompileInputs.cache
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.RazorAssemblyInfo.cache
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.RazorAssemblyInfo.cs
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.AssemblyInfoInputs.cache
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.AssemblyInfo.cs
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.dll
+C:\Users\Jimmy\source\repos\PraiseProvisionsAPI\PraiseProvisionAPI\obj\Release\netcoreapp2.1\PraiseProvisionAPI.pdb
