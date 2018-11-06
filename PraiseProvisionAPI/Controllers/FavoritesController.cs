@@ -49,10 +49,12 @@ namespace PraiseProvisionsAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            Favorites favorite =new Favorites({
-                ChefID = 
-            });
-            await _context.Favorites.AddAsync();
+            Favorites favorite = new Favorites
+            {
+                ChefID = chefID,
+                RestaurantID = restaurantID
+            };
+            await _context.Favorites.AddAsync(favorite);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Get", new { id = favorite.ChefID }, new Favorites());
