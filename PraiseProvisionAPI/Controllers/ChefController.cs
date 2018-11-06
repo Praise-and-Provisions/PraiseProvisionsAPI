@@ -51,21 +51,22 @@ namespace PraiseProvisionsAPI.Controllers
             await _context.Chefs.AddAsync(chef);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Get", new { id = chef.ID }, new Chef());
+            return CreatedAtAction("Get", new { id = chef.ID }, chef);
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
-            
-            if(found != null)
+            var found = _context.Chefs.Where(x => x.ID == id);
+
+            if (found != null)
             {
                 _context.Chefs.Update(chef);
             }
@@ -79,12 +80,13 @@ namespace PraiseProvisionsAPI.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
-            if(found != null)
+            var result = _context.Chefs.FirstOrDefault(x => x.ID == id);
+            if(result != null)
             {
-                _context.Chefs.Remove(found);
+                _context.Chefs.Remove(result);
+                await _context.SaveChangesAsync();
             }
 
             return Ok();

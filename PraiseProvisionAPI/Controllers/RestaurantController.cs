@@ -63,7 +63,7 @@ namespace PraiseProvisionsAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var found = _context.Restaurants.FirstOrDefault(x => x.ID == id);
+            var found = _context.Restaurants.Where(x => x.ID == id);
 
             if (found != null)
             {
@@ -79,13 +79,14 @@ namespace PraiseProvisionsAPI.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async IActionResult Delete(int id)
         {
             var found = _context.Restaurants.FirstOrDefault(x => x.ID == id);
 
             if(found != null)
             {
                 _context.Restaurants.Remove(found);
+                await _context.SaveChangesAsync();
             }
 
             return Ok();

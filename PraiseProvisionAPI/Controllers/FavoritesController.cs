@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PraiseProvisionsAPI.Data;
 using PraiseProvisionsAPI.Models;
 
@@ -41,14 +42,17 @@ namespace PraiseProvisionsAPI.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]Favorites favorite)
+        public async Task<IActionResult> Post(int? chefID, int? restaurantID)
         {
-            if (!ModelState.IsValid)
+            if (chefID == null || restaurantID == null)
             {
                 return BadRequest(ModelState);
             }
 
-            await _context.Favorites.AddAsync(favorite);
+            Favorites favorite =new Favorites({
+                ChefID = 
+            });
+            await _context.Favorites.AddAsync();
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Get", new { id = favorite.ChefID }, new Favorites());
