@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PraiseProvisionAPI.Models.Interfaces;
+using PraiseProvisionAPI.Models.Services;
 using PraiseProvisionsAPI.Data;
 
 namespace PraiseProvisionsAPI
@@ -32,6 +34,8 @@ namespace PraiseProvisionsAPI
             {
                options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
             });
+
+            services.AddTransient<IChef, ChefService>();
             
         }
 
