@@ -22,7 +22,7 @@ namespace PraiseProvisionsAPI.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public ActionResult<IEnumerable<Chef>>Get()
+        public ActionResult<IEnumerable<Chef>> Get()
         {
             return _context.Chefs;
         }
@@ -51,7 +51,7 @@ namespace PraiseProvisionsAPI.Controllers
             await _context.Chefs.AddAsync(chef);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("Get", new { id = chef.ID }, chef);
+            return CreatedAtAction("Get", new { id = chef.ID }, new Chef());
         }
 
         // PUT api/<controller>/5
