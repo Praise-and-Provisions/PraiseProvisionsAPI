@@ -79,7 +79,7 @@ namespace PraiseProvisionsAPI.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             var found = _context.Restaurants.FirstOrDefault(x => x.ID == id);
 
