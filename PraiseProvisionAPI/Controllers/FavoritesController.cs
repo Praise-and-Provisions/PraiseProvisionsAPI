@@ -51,7 +51,7 @@ namespace PraiseProvisionsAPI.Controllers
             await _context.Favorites.AddAsync(favorite);
             await _context.SaveChangesAsync();
 
-            CreatedAtAction("Get", new { id = favorite.ChefID }, new Favorites());
+            return CreatedAtAction("Get", new { id = favorite.ChefID }, new Favorites());
         }
 
         // PUT api/<controller>/5
