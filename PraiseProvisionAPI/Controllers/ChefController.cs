@@ -40,20 +40,53 @@ namespace PraiseProvisionsAPI.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]Chef chef)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _context.Chefs.AddAsync(chef);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("Get", new { id = chef.ID }, chef);
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
+            
+            if(found != null)
+            {
+                _context.Chefs.Update(chef);
+            }
+            else
+            {
+                await Post(chef);
+            }
+
+            return RedirectToAction("Get", new { id = chef.ID });
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
+            if(found != null)
+            {
+                _context.Chefs.Remove(found);
+            }
+
+            return Ok();
         }
     }
 }
