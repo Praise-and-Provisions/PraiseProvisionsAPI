@@ -32,12 +32,13 @@ namespace PraiseProvisionsAPI
             services.AddMvc();
             services.AddDbContext<PraiseDBContext>(options =>
             {
-               options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddTransient<IChef, ChefService>();
             services.AddTransient<IRestaurant, RestaurantService>();
             services.AddTransient<IFavorite, FavoriteService>();
+            services.AddTransient<IRecommendation, RecommendationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
