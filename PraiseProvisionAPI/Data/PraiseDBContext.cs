@@ -93,8 +93,8 @@ namespace PraiseProvisionsAPI.Data
                     ID = 5,
                     Name = "Levain Bakery",
                     Address = "12405 SE 38th St, Bellevue, WA 98006",
-                    Description = "New York",
-                    City = ""
+                    Description = "Steakhouses, Brazilian",
+                    City = "New York"
                 }
             );
 
@@ -102,12 +102,14 @@ namespace PraiseProvisionsAPI.Data
                 new Favorites
                 {
                     ChefID = 3,
-                    RestaurantID = 1
+                    RestaurantID = 1,
+                    Reviews = "This restaurant is amazing!"
                 },
                 new Favorites
                 {
                     ChefID = 1,
-                    RestaurantID = 4
+                    RestaurantID = 4,
+                    Reviews = "Gordon says terrible, terrible restaurant."
                 }
             );
         }

@@ -9,6 +9,7 @@ namespace PraiseProvisionsAPI.Models
     {
         public int ChefID { get; set; }
         public int RestaurantID { get; set; }
+        public string Reviews { get; set; }
 
         public Chef Chef { get; set; }
         public Restaurant Restaurant { get; set; }

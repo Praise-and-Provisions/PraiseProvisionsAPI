@@ -30,7 +30,8 @@ namespace PraiseProvisionAPI.Models.Services
                     RestaurantName = r.Restaurant.Name,
                     Address = r.Restaurant.Address,
                     Description = r.Restaurant.Description,
-                    City = r.Restaurant.City
+                    City = r.Restaurant.City,
+                    Review = r.Reviews
                 }).ToList();
             return recommendations;
         }
