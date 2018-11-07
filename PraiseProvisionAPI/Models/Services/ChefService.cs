@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PraiseProvisionAPI.Models.Interfaces;
 using PraiseProvisionsAPI.Data;
 using PraiseProvisionsAPI.Models;
@@ -18,31 +19,35 @@ namespace PraiseProvisionAPI.Models.Services
             _context = context;
         }
 
-        public Task CreateChef(Chef chef)
+        public async Task CreateChef(Chef chef)
         {
-            throw new NotImplementedException();
+            await _context.AddAsync(chef);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteChef(Chef chef)
+        public async Task DeleteChef(Chef chef)
         {
-            throw new NotImplementedException();
+            _context.Chefs.Remove(chef);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<Chef> GetChef(int? id)
+        public async Task<Chef> GetChef(int id)
         {
             return await _context.Chefs.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public async Task<IEnumerable<Chef>> GetChefs()
+        public IEnumerable<Chef> GetChefs()
         {
-            return await _context.Chefs.ToListAsync();
+            return _context.Chefs;
         }
 
-        public async Task UpdateChef(Chef chef)
+        public async Task UpdateChef(int id, Chef chef)
         {
-            await _context.Chefs.AddAsync(chef);
+            if(GetChef(id) != null)
+            {
+                _context.Chefs.Update(chef);
+            }
             await _context.SaveChangesAsync();
-
         }
     }
 }

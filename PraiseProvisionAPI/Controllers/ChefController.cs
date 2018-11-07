@@ -23,9 +23,9 @@ namespace PraiseProvisionsAPI.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public async Task<IEnumerable<Chef>> Get()
+        public IEnumerable<Chef> Get()
         {
-            return await _context.GetChefs();
+            return _context.GetChefs();
         }
 
         // GET api/<controller>/5
@@ -54,42 +54,32 @@ namespace PraiseProvisionsAPI.Controllers
             return CreatedAtAction("Get", new { id = chef.ID }, chef);
         }
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
-        {
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var found = _context.GetChef(id);
-
-            if (found != null)
-            {
-                await _context.UpdateChef(chef);
-            }
-            else
-            {
-                await Post(chef);
-            }
-
-            return RedirectToAction("Get", new { id = chef.ID });
-        }
-
-        //// DELETE api/<controller>/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> Delete(int id)
+        //// PUT api/<controller>/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
         //{
-        //    var result = _context.Chefs.FirstOrDefault(x => x.ID == id);
-        //    if(result != null)
+
+        //    if (!ModelState.IsValid)
         //    {
-        //        _context.Chefs.Remove(result);
-        //        await _context.SaveChangesAsync();
+        //        return BadRequest(ModelState);
         //    }
 
-        //    return Ok();
+        //    await _context.UpdateChef(id, chef);
+
+        //    return RedirectToAction("Get", new { id = chef.ID });
         //}
+
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _context.GetChef(id);
+            if (result != null)
+            {
+                await _context.DeleteChef(result);
+            }
+
+            return Ok();
+        }
     }
 }

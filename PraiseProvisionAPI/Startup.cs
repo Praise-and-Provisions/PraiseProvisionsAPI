@@ -35,7 +35,7 @@ namespace PraiseProvisionsAPI
                options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
             });
 
-            services.AddTransient<IChef, ChefService>();
+            services.AddScoped<IChef, ChefService>();
             
         }
 
