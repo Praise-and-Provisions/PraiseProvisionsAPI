@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PraiseProvisionAPI.Models.Interfaces;
 using PraiseProvisionsAPI.Data;
 using PraiseProvisionsAPI.Models;
 
@@ -13,25 +14,25 @@ namespace PraiseProvisionsAPI.Controllers
     [Route("api/[controller]")]
     public class ChefController : ControllerBase
     {
-        public PraiseDBContext _context { get; set; }
+        private IChef _context;
 
-        public ChefController(PraiseDBContext context)
+        public ChefController(IChef context)
         {
             _context = context;
         }
 
         // GET: api/<controller>
         [HttpGet]
-        public ActionResult<IEnumerable<Chef>> Get()
+        public IEnumerable<Chef> Get()
         {
-            return _context.Chefs;
+            return _context.GetChefs();
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public ActionResult<IActionResult> Get(int id)
+        public async Task<ActionResult<IActionResult>> Get(int id)
         {
-            var chef = _context.Chefs.FirstOrDefault(x => x.ID == id);
+            var chef = await _context.GetChef(id);
             if (chef == null)
             {
                 return NotFound();
@@ -48,43 +49,34 @@ namespace PraiseProvisionsAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _context.Chefs.AddAsync(chef);
-            await _context.SaveChangesAsync();
+            await _context.CreateChef(chef);
 
-            return CreatedAtAction("Get", new { id = chef.ID }, new Chef());
+            return CreatedAtAction("Get", new { id = chef.ID }, chef);
         }
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT api/<controller>/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
+        //{
 
-            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
-            
-            if(found != null)
-            {
-                _context.Chefs.Update(chef);
-            }
-            else
-            {
-                await Post(chef);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            return RedirectToAction("Get", new { id = chef.ID });
-        }
+        //    await _context.UpdateChef(id, chef);
+
+        //    return RedirectToAction("Get", new { id = chef.ID });
+        //}
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var found = _context.Chefs.FirstOrDefault(x => x.ID == id);
-            if(found != null)
+            var result = await _context.GetChef(id);
+            if (result != null)
             {
-                _context.Chefs.Remove(found);
+                await _context.DeleteChef(result);
             }
 
             return Ok();
