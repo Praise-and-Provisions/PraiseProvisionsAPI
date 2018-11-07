@@ -29,7 +29,8 @@ namespace PraiseProvisionAPI.Models.Services
                     ChefLastName = r.Chef.LastName,
                     RestaurantName = r.Restaurant.Name,
                     Address = r.Restaurant.Address,
-                    Description = r.Restaurant.Description
+                    Description = r.Restaurant.Description,
+                    City = r.Restaurant.City
                 }).ToList();
             return recommendations;
         }

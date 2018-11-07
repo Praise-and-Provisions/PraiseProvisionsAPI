@@ -13,5 +13,6 @@ namespace PraiseProvisionAPI.Models
         public string RestaurantName { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
+        public string City { get; set; }
     }
 }
