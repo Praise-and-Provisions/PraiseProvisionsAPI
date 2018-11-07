@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PraiseProvisionsAPI.Data;
 
-namespace PraiseProvisionsAPI.Migrations
+namespace PraiseProvisionAPI.Migrations
 {
     [DbContext(typeof(PraiseDBContext))]
     partial class PraiseDBContextModelSnapshot : ModelSnapshot
@@ -53,6 +53,11 @@ namespace PraiseProvisionsAPI.Migrations
                     b.HasIndex("RestaurantID");
 
                     b.ToTable("Favorites");
+
+                    b.HasData(
+                        new { ChefID = 3, RestaurantID = 1 },
+                        new { ChefID = 1, RestaurantID = 4 }
+                    );
                 });
 
             modelBuilder.Entity("PraiseProvisionsAPI.Models.Restaurant", b =>

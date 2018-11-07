@@ -92,6 +92,19 @@ namespace PraiseProvisionsAPI.Data
                     Description = "Steakhouses, Brazilian"
                 }
             );
+
+            mb.Entity<Favorites>().HasData(
+                new Favorites
+                {
+                    ChefID = 3,
+                    RestaurantID = 1
+                },
+                new Favorites
+                {
+                    ChefID = 1,
+                    RestaurantID = 4
+                }
+            );
         }
 
         public DbSet<Chef> Chefs { get; set; }

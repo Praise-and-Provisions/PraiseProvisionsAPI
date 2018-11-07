@@ -38,6 +38,7 @@ namespace PraiseProvisionsAPI
             services.AddTransient<IChef, ChefService>();
             services.AddTransient<IRestaurant, RestaurantService>();
             services.AddTransient<IFavorite, FavoriteService>();
+            services.AddTransient<IRecommendation, RecommendationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

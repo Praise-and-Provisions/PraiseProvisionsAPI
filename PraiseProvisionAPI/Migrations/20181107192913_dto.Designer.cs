@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PraiseProvisionsAPI.Data;
 
-namespace PraiseProvisionsAPI.Migrations
+namespace PraiseProvisionAPI.Migrations
 {
     [DbContext(typeof(PraiseDBContext))]
-    [Migration("20181106002127_Initial")]
-    partial class Initial
+    [Migration("20181107192913_dto")]
+    partial class dto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,10 @@ namespace PraiseProvisionsAPI.Migrations
                     b.ToTable("Chefs");
 
                     b.HasData(
-                        new { ID = 1, City = "Albany", FirstName = "Paula", LastName = "Deen" }
+                        new { ID = 1, City = "Albany", FirstName = "Paula", LastName = "Deen" },
+                        new { ID = 2, City = "Los Angeles", FirstName = "Gordon", LastName = "Ramsey" },
+                        new { ID = 3, City = "Jamaica", FirstName = "Jimmy", LastName = "Fallon" },
+                        new { ID = 4, City = "Omaha", FirstName = "Jack", LastName = "TheRipper" }
                     );
                 });
 
@@ -52,6 +55,11 @@ namespace PraiseProvisionsAPI.Migrations
                     b.HasIndex("RestaurantID");
 
                     b.ToTable("Favorites");
+
+                    b.HasData(
+                        new { ChefID = 3, RestaurantID = 1 },
+                        new { ChefID = 1, RestaurantID = 4 }
+                    );
                 });
 
             modelBuilder.Entity("PraiseProvisionsAPI.Models.Restaurant", b =>
@@ -69,6 +77,14 @@ namespace PraiseProvisionsAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Restaurants");
+
+                    b.HasData(
+                        new { ID = 1, Address = "1411 156th Ave NE, Ste A, Bellevue, WA 98007", Description = "Chinese, Hot Pot", Name = "Little Sheep Mongolian Hot Pot" },
+                        new { ID = 2, Address = "14330 Lake City Way NE, Seattle, WA 98125", Description = "Southern, Soul Food, Fast Food ", Name = "Heaven Sent Fried Chicken" },
+                        new { ID = 3, Address = "700 Bellevue Way NE, Ste 280, Bellevue, WA 98004", Description = "Taiwanese, Dim Sum, Shanghainese", Name = "Din Tai Fung" },
+                        new { ID = 4, Address = "2115 Westlake Ave, Seattle, WA 98121", Description = "Fast Food, American (Traditional), Burgers", Name = "Shake Shack" },
+                        new { ID = 5, Address = "12405 SE 38th St, Bellevue, WA 98006", Description = "Steakhouses, Brazilian", Name = "Novilhos Brazilian Steak House" }
+                    );
                 });
 
             modelBuilder.Entity("PraiseProvisionsAPI.Models.Favorites", b =>
