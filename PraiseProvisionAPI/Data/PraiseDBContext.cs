@@ -59,37 +59,42 @@ namespace PraiseProvisionsAPI.Data
                 new Restaurant
                 {
                     ID = 1,
-                    Name = "Little Sheep Mongolian Hot Pot",
+                    Name = "The Pink Door",
                     Address = "1411 156th Ave NE, Ste A, Bellevue, WA 98007",
-                    Description = "Chinese, Hot Pot"
+                    Description = "Chinese, Hot Pot",
+                    City = "Seattle"
                 },
                 new Restaurant
                 {
                     ID = 2,
-                    Name = "Heaven Sent Fried Chicken",
+                    Name = "Tasty n Alder",
                     Address = "14330 Lake City Way NE, Seattle, WA 98125",
-                    Description = "Southern, Soul Food, Fast Food "
+                    Description = "Southern, Soul Food, Fast Food",
+                    City = "Portland"
                 },
                 new Restaurant
                 {
                     ID = 3,
-                    Name = "Din Tai Fung",
+                    Name = "Fog Harbor Fish House",
                     Address = "700 Bellevue Way NE, Ste 280, Bellevue, WA 98004",
-                    Description = "Taiwanese, Dim Sum, Shanghainese"
+                    Description = "Taiwanese, Dim Sum, Shanghainese",
+                    City = "San Francisco"
                 },
                 new Restaurant
                 {
                     ID = 4,
-                    Name = "Shake Shack",
+                    Name = "Bestia",
                     Address = "2115 Westlake Ave, Seattle, WA 98121",
-                    Description = "Fast Food, American (Traditional), Burgers"
+                    Description = "Fast Food, American (Traditional), Burgers",
+                    City = "Los Angeles"
                 },
                 new Restaurant
                 {
                     ID = 5,
-                    Name = "Novilhos Brazilian Steak House",
+                    Name = "Levain Bakery",
                     Address = "12405 SE 38th St, Bellevue, WA 98006",
-                    Description = "Steakhouses, Brazilian"
+                    Description = "New York",
+                    City = ""
                 }
             );
 
