@@ -14,6 +14,10 @@ namespace PraiseProvisionsAPI.Data
         {
         }
 
+        public PraiseDBContext()
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Favorites>().HasKey(
