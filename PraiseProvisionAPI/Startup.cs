@@ -35,8 +35,9 @@ namespace PraiseProvisionsAPI
                options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
             });
 
-            services.AddScoped<IChef, ChefService>();
-            services.AddScoped<IRestaurant, RestaurantService>();
+            services.AddTransient<IChef, ChefService>();
+            services.AddTransient<IRestaurant, RestaurantService>();
+            services.AddTransient<IFavorite, FavoriteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

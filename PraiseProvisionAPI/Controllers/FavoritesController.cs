@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PraiseProvisionAPI.Models.Interfaces;
 using PraiseProvisionsAPI.Data;
 using PraiseProvisionsAPI.Models;
 
@@ -14,31 +15,31 @@ namespace PraiseProvisionsAPI.Controllers
     [Route("api/[controller]")]
     public class FavoritesController : ControllerBase
     {
-        public PraiseDBContext _context { get; set; }
+        public IFavorite _context;
 
-        public FavoritesController(PraiseDBContext context)
+        public FavoritesController(IFavorite context)
         {
             _context = context;
         }
 
         // GET: api/<controller>
         [HttpGet]
-        public ActionResult<IEnumerable<Favorites>> Get()
+        public async Task<IEnumerable<Favorites>> Get()
         {
-            return _context.Favorites;
+            return await _context.GetFavorites();
         }
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var found = _context.Favorites.Where(x => x.ChefID == id);
-            if (found == null)
-            {
-                return NotFound();
-            }
-            return Ok(found);
-        }
+        //// GET api/<controller>/5
+        //[HttpGet("{id}")]
+        //public IActionResult Get(int id)
+        //{
+        //    var found = _context.Favorites.Where(x => x.ChefID == id);
+        //    if (found == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(found);
+        //}
 
         //// POST api/<controller>
         //[HttpPost]
@@ -61,16 +62,16 @@ namespace PraiseProvisionsAPI.Controllers
         //}
 
         // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
 
-        }
+        //}
 
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<controller>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
