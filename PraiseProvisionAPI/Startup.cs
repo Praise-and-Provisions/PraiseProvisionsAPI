@@ -32,7 +32,7 @@ namespace PraiseProvisionsAPI
             services.AddMvc();
             services.AddDbContext<PraiseDBContext>(options =>
             {
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+               options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
             });
 
             services.AddTransient<IChef, ChefService>();
