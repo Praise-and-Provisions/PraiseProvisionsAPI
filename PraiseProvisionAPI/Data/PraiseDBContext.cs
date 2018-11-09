@@ -66,6 +66,27 @@ namespace PraiseProvisionsAPI.Data
                     FirstName = "Eddie",
                     LastName = "Huang",
                     ChefImage = "https://pbs.twimg.com/profile_images/878592689595453442/WWbTrWHF.jpg"
+                },
+                new Chef
+                {
+                    ID = 7,
+                    FirstName = "Cathy",
+                    LastName = "Whims",
+                    ChefImage = "http://i0.wp.com/www.foodrepublic.com/wp-content/uploads/2015/10/Cathy-Head-Shot-J.-Valls.jpg?resize=700%2C1050"
+                },
+                new Chef
+                {
+                    ID = 8,
+                    FirstName = "Eduoardo",
+                    LastName = "Jordan",
+                    ChefImage = "https://media1.fdncms.com/stranger/imager/u/original/23904087/1459784576-blackchefs-570.jpg"
+                },
+                new Chef
+                {
+                    ID = 9,
+                    FirstName = "Rachel",
+                    LastName = "Yang",
+                    ChefImage = "https://i2.wp.com/eatsabroad.com/wp-content/uploads/2016/12/trove-chef-rachel-cropped-1.jpg?resize=696%2C523&ssl=1"
                 }
             );
 
@@ -141,7 +162,35 @@ namespace PraiseProvisionsAPI.Data
                     Description = "Iconic steakhouse where old-school waiters serve aged beef in a German beer hall setting.",
                     City = "Brooklyn",
                     RestaurantImage = "https://d1t295ks1d26ah.cloudfront.net/media/pictures/files/000/008/958/xlarge_desktop/x1.jpg?1424289053"
+                },
+                new Restaurant
+                {
+                    ID = 9,
+                    Name = "Il Corvo Pasta",
+                    Address = "217 James Street, Seattle, WA, 98104",
+                    Description = "Lunch-only Italian spot for homemade pastas served in a space decorated with antique tools.",
+                    City = "Seattle",
+                    RestaurantImage = "https://img.sunset02.com/sites/default/files/image/2013/06/inside-seattle-go-pioneer-square-corvo-pastas-pappardelle-0613-m.jpg"
+                }, 
+                new Restaurant
+                {
+                    ID = 10,
+                    Name = "Canlis",
+                    Address = "2576 Aurora Ave N, Seattle, WA 98109",
+                    Description = "Landmark fine-dining destination (since 1950s) offering Pacific NW fare in a midcentury-modern home.",
+                    City = "Seattle",
+                    RestaurantImage = "http://winezag.com/wp-content/uploads/2009/07/canlis.jpg"
+                },
+                new Restaurant
+                {
+                    ID = 11,
+                    Name = "Serious Pie",
+                    Address = "316 Virginia St, Seattle, WA 98101",
+                    Description = "Cozy restaurant with wood-fired, thin-crust gourmet pizzas, wine & beer served at communal tables.",
+                    City = "Seattle",
+                    RestaurantImage = "https://www.seriouspieseattle.com/uploads/_400x300_crop_center-center_65/both-pizzas_whole_birdseye.jpg"
                 }
+                
             );
 
             mb.Entity<Favorites>().HasData(
@@ -192,7 +241,26 @@ namespace PraiseProvisionsAPI.Data
                     ChefID = 6,
                     RestaurantID = 8,
                     Reviews = "A New York City steakhouse institution-- eating here is an experience unlike any other in the city."
-                }
+                },
+                new Favorites
+                {
+                    ChefID = 7,
+                    RestaurantID = 9,
+                    Reviews = "A tiny hole-in-the-wall pasta restaurant with a rotating selection of three different daily pastas, a casual atmosphere, and very fast service — even though there is always a line (queue) out the door. Mike Easton’s reverence of pasta is manifested in every bowl. I wish I had opened it myself."
+                },
+                new Favorites
+                {
+                    ChefID = 8,
+                    RestaurantID = 10,
+                    Reviews = "When I need to be spoiled or celebrate, this is the place to go. There’s really not much that needs to be said about the landmark of Seattle’s culinary scene. Steeped in history, Canlis exudes elegance and great service with food to match. This the place where happy times begin and end.."
+                },
+               new Favorites
+               {
+                   ChefID = 9,
+                   RestaurantID = 11,
+                   Reviews = "I actually really love Tom Douglas’s Serious Pie pizza. He definitely has great people working for him, his food is always solid, and the pizza’s great."
+               }
+
             );
         }
 
