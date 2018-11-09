@@ -27,11 +27,13 @@ namespace PraiseProvisionAPI.Models.Services
                 {
                     ChefFirstName = r.Chef.FirstName,
                     ChefLastName = r.Chef.LastName,
+                    ChefImage = r.Chef.ChefImage,
                     RestaurantName = r.Restaurant.Name,
                     Address = r.Restaurant.Address,
                     Description = r.Restaurant.Description,
                     City = r.Restaurant.City,
-                    Review = r.Reviews
+                    Review = r.Reviews,
+                    RestaurantImage = r.Restaurant.RestaurantImage
                 }).ToList();
             return recommendations;
         }
