@@ -20,10 +20,8 @@ namespace PraiseProvisionsAPITest
             Chef chef = new Chef();
             chef.FirstName = "David";
             chef.LastName = "Wells";
-            chef.City = "Bronx";
             Assert.Equal("David", chef.FirstName);
             Assert.Equal("Wells", chef.LastName);
-            Assert.Equal("Bronx", chef.City);
         }
 
 
@@ -36,7 +34,6 @@ namespace PraiseProvisionsAPITest
             Chef chef = new Chef();
             chef.FirstName = "Jimmy";
             chef.LastName = "G";
-            chef.City = "Houston";
 
             chef.FirstName = "California";
             Assert.Equal("California", chef.FirstName);
@@ -59,17 +56,14 @@ namespace PraiseProvisionsAPITest
                 Chef chef = new Chef();
                 chef.FirstName = "Paula";
                 chef.LastName = "Deen";
-                chef.City = "Albany";
 
                 context.Chefs.Add(chef);
                 context.SaveChanges();
 
                 var Chef = await context.Chefs.FirstOrDefaultAsync(x => x.FirstName == chef.FirstName);
                 var Last = await context.Chefs.FirstOrDefaultAsync(x => x.LastName == chef.LastName);
-                var city = await context.Chefs.FirstOrDefaultAsync(x => x.City == chef.City);
                 Assert.Equal("Paula", Chef.FirstName);
                 Assert.Equal("Deen", Chef.LastName);
-                Assert.Equal("Albany", Chef.City);
             }
         }
 
@@ -90,23 +84,19 @@ namespace PraiseProvisionsAPITest
                 Chef chef = new Chef();
                 chef.FirstName = "Paula";
                 chef.LastName = "Deen";
-                chef.City = "Albany";
 
                 context.Chefs.Add(chef);
                 context.SaveChanges();
 
                 chef.FirstName = "Dame";
                 chef.LastName = "Mike";
-                chef.City = "Fontana";
                 context.Chefs.Update(chef);
 
                 var ChefFistName = await context.Chefs.FirstOrDefaultAsync(x => x.FirstName == chef.FirstName);
                 var ChefLastName = await context.Chefs.FirstOrDefaultAsync(x => x.LastName == chef.LastName);
-                var ChefCity = await context.Chefs.FirstOrDefaultAsync(x => x.City == chef.City);
 
                 Assert.Equal("Dame", ChefFistName.FirstName);
                 Assert.Equal("Mike", ChefLastName.LastName);
-                Assert.Equal("Fontana", ChefCity.City);
             }
         }
 
@@ -232,7 +222,6 @@ namespace PraiseProvisionsAPITest
             Chef chef = new Chef();
             chef.FirstName = "TK";
             chef.LastName = "Mite";
-            chef.City = "Avelo";
 
             Restaurant rest = new Restaurant();
             rest.Address = "2901 3rd Ave #300, Seattle, WA 98121";
@@ -246,7 +235,6 @@ namespace PraiseProvisionsAPITest
 
             Assert.Equal("TK", favs.Chef.FirstName);
             Assert.Equal("Mite", favs.Chef.LastName);
-            Assert.Equal("Avelo", favs.Chef.City);
             Assert.Equal("2901 3rd Ave #300, Seattle, WA 98121", favs.Restaurant.Address);
             Assert.Equal("Hot Fire!", favs.Restaurant.Description);
             Assert.Equal("Arby's", favs.Restaurant.Name);
@@ -263,7 +251,6 @@ namespace PraiseProvisionsAPITest
             Chef chef = new Chef();
             chef.FirstName = "TK";
             chef.LastName = "Mite";
-            chef.City = "Avelo";
 
             Restaurant rest = new Restaurant();
             rest.Address = "2901 3rd Ave #300, Seattle, WA 98121";
@@ -273,7 +260,6 @@ namespace PraiseProvisionsAPITest
 
             chef.FirstName = "Table";
             chef.LastName = "Top";
-            chef.City = "Jammers";
 
             rest.Address = "Back Alley";
             rest.Description = "Super Hot Fire!";
@@ -286,7 +272,6 @@ namespace PraiseProvisionsAPITest
 
             Assert.Equal("Table", favs.Chef.FirstName);
             Assert.Equal("Top", favs.Chef.LastName);
-            Assert.Equal("Jammers", favs.Chef.City);
             Assert.Equal("Back Alley", favs.Restaurant.Address);
             Assert.Equal("Super Hot Fire!", favs.Restaurant.Description);
             Assert.Equal("BK", favs.Restaurant.Name);
@@ -310,7 +295,6 @@ namespace PraiseProvisionsAPITest
                 Chef chef = new Chef();
                 chef.FirstName = "TK";
                 chef.LastName = "Mite";
-                chef.City = "Avelo";
 
                 Restaurant rest = new Restaurant();
                 rest.Address = "2901 3rd Ave #300, Seattle, WA 98121";
@@ -332,7 +316,6 @@ namespace PraiseProvisionsAPITest
 
                 var ChefFirstName = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.FirstName == favs.Chef.FirstName);
                 var ChefLastName = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.LastName == favs.Chef.LastName);
-                var ChefCity = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.City == favs.Chef.City);
 
                 Assert.Equal("2901 3rd Ave #300, Seattle, WA 98121", RestAddress.Restaurant.Address);
                 Assert.Equal("Hot Fire!", RestDescription.Restaurant.Description);
@@ -341,7 +324,6 @@ namespace PraiseProvisionsAPITest
 
                 Assert.Equal("TK", ChefFirstName.Chef.FirstName);
                 Assert.Equal("Mite", ChefLastName.Chef.LastName);
-                Assert.Equal("Avelo", ChefCity.Chef.City);
             }
         }
 
@@ -362,7 +344,6 @@ namespace PraiseProvisionsAPITest
                 Chef chef = new Chef();
                 chef.FirstName = "TK";
                 chef.LastName = "Mite";
-                chef.City = "Avelo";
 
                 Restaurant rest = new Restaurant();
                 rest.Address = "2901 3rd Ave #300, Seattle, WA 98121";
@@ -379,7 +360,6 @@ namespace PraiseProvisionsAPITest
 
                 chef.FirstName = "Tip";
                 chef.LastName = "Harris";
-                chef.City = "ATL";
 
                 rest.Address = "Side Alley";
                 rest.Description = "Hot!";
@@ -398,7 +378,6 @@ namespace PraiseProvisionsAPITest
 
                 var ChefFirstName = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.FirstName == favs.Chef.FirstName);
                 var ChefLastName = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.LastName == favs.Chef.LastName);
-                var ChefCity = await context.Favorites.FirstOrDefaultAsync(x => x.Chef.City == favs.Chef.City);
 
                 Assert.Equal("Side Alley", RestAddress.Restaurant.Address);
                 Assert.Equal("Hot!", RestDescription.Restaurant.Description);
@@ -406,7 +385,6 @@ namespace PraiseProvisionsAPITest
 
                 Assert.Equal("Tip", ChefFirstName.Chef.FirstName);
                 Assert.Equal("Harris", ChefLastName.Chef.LastName);
-                Assert.Equal("ATL", ChefCity.Chef.City);
                 Assert.Equal(444, RestID.Restaurant.ID);
             }
         }
