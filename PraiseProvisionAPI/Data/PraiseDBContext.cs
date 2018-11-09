@@ -73,20 +73,20 @@ namespace PraiseProvisionsAPI.Data
                 new Restaurant
                 {
                     ID = 1,
-                    Name = "JuneBaby",
-                    Address = "2122 NE 65th St. Seattle, WA 98115",
-                    Description = "Classic Southern fare made with heirloom ingredients is served in a stylish locale with cocktails.",
+                    Name = "Canlis",
+                    Address = "2576 Aurora Ave N, Seattle, WA 98109",
+                    Description = "Landmark fine-dining destination since the 1950s offering Pacific NW fare in a midcentury-modern home.",
                     City = "Seattle",
-                    RestaurantImage = "https://photos.smugmug.com/Seattle-Restaurant-Photography/2017/Junebaby/i-7sXBgZX/1/35d0094e/L/Pratt_Junebaby_006-L.jpg"
+                    RestaurantImage = "https://afar-production.imgix.net/uploads/images/post_images/images/rTeQVhrrCU/original_Canlis.jpeg?1526232946?ixlib=rails-0.3.0&auto=format%2Ccompress&crop=entropy&fit=crop&h=719&q=80&w=954"
                 },
                 new Restaurant
                 {
                     ID = 2,
-                    Name = "Salare",
-                    Address = "2404 NE 65th St, Seattle, WA 98115",
-                    Description = "Eclectic menu featuring nose-to-tail local meats & creative veggie dishes in a contemporary room.",
+                    Name = "Altura",
+                    Address = "617 Broadway E, Seattle, WA 98102",
+                    Description = "Elevated seasonal Italian cuisine with handmade pastas, tasting menus & wine pairing in a cozy room.",
                     City = "Seattle",
-                    RestaurantImage = "https://resizer.otstatic.com/v2/photos/large/25144284.jpg"
+                    RestaurantImage = "http://www.thesanfranciscan.net/uploads/3/9/7/7/39777086/6691365_orig.jpg"
                 },
                 new Restaurant
                 {
@@ -149,7 +149,7 @@ namespace PraiseProvisionsAPI.Data
                 {
                     ChefID = 1,
                     RestaurantID = 1,
-                    Reviews = "The best fried chicken you can get in the Pacific North West!"
+                    Reviews = "The best and freshest seafood in the Pacific North West!"
                 },
                 new Favorites
                 {
