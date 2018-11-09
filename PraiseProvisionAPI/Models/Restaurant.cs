@@ -12,6 +12,7 @@ namespace PraiseProvisionsAPI.Models
         public string Address { get; set; }
         public string Description { get; set; }
         public string City { get; set; }
+        public string RestaurantImage { get; set; }
 
         public IEnumerable<Favorites> Favorites { get; set; }
     }
