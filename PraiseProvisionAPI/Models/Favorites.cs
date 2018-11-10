@@ -7,6 +7,7 @@ namespace PraiseProvisionsAPI.Models
 {
     public class Favorites
     {
+        // Favorites model
         public int ChefID { get; set; }
         public int RestaurantID { get; set; }
         public string Reviews { get; set; }

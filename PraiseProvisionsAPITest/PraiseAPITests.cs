@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace PraiseProvisionsAPITest
 {
-    public class UnitTest1
+    public class PraiseAPITests
     {
         /// <summary>
         /// Test that we can get a chefs properties

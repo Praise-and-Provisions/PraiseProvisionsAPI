@@ -8,6 +8,7 @@ namespace PraiseProvisionAPI.Models.Interfaces
 {
     public interface IFavorite
     {
+        // Interface for favorites
         Task<IEnumerable<Favorites>> GetFavorites();
     }
 }

@@ -7,8 +7,8 @@ namespace PraiseProvisionAPI.Models.Interfaces
 {
     public interface IRestaurant
     {
+        // interface for restaurant
         Task CreateRestaurant(Restaurant restaurant);
-        Task UpdateRestaurant(int id, Restaurant restaurant);
         Task<Restaurant> GetRestaurant(int id);
         IEnumerable<Restaurant> GetRestaurants();
         Task DeleteRestaurant(Restaurant restaurant);

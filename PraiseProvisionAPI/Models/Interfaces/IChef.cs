@@ -7,8 +7,8 @@ namespace PraiseProvisionAPI.Models.Interfaces
 {
     public interface IChef
     {
+        // interface for chef
         Task CreateChef(Chef chef);
-        Task UpdateChef(int id, Chef chef);
         Task<Chef> GetChef(int id);
         IEnumerable<Chef> GetChefs();
         Task DeleteChef(Chef chef);

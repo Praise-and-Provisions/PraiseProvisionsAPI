@@ -54,20 +54,6 @@ namespace PraiseProvisionsAPI.Controllers
             return CreatedAtAction("Get", new { id = restaurant.ID }, restaurant);
         }
 
-        //// PUT api/<controller>/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Put(int id, [FromBody]Chef chef)
-        //{
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    await _context.UpdateChef(id, chef);
-
-        //    return RedirectToAction("Get", new { id = chef.ID });
-        //}
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]

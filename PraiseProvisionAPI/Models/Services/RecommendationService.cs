@@ -12,17 +12,27 @@ namespace PraiseProvisionAPI.Models.Services
     {
         private readonly PraiseDBContext _context;
 
+        /// <summary>
+        /// set up the context
+        /// </summary>
+        /// <param name="context">the db context</param>
         public RecommendationService(PraiseDBContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// returns all of the recommendations
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Recommendation> GetRecommendations()
         {
+            // gets the list of recommendations and maps it to the recommendations model
             var recommendations = _context.Favorites
                 .Include(f => f.Chef)
                 .Include(f => f.Restaurant)
                 .Select(r =>
+                // create a new recommendation from the included shadow properties
                 new Recommendation
                 {
                     ChefFirstName = r.Chef.FirstName,
