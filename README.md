@@ -5,10 +5,10 @@ An api that returns restaurants, chefs and the chef's recommended restaurants. Y
 [API Site](https://praiseapi.azurewebsites.net/)
 
 You can use the endpoints:
-/api/chef - get all chefs
-/api/favorites - get all favorites
-/api/recommendations - get all chef recommendations
-/api/restaurant - get all restaurants
+1. /api/chef - get all chefs
+2. /api/favorites - get all favorites
+3. /api/recommendations - get all chef recommendations
+4. /api/restaurant - get all restaurants
 
 There are some hidden endpoints as well left in there as easter eggs. Feel free to explore them!
 
