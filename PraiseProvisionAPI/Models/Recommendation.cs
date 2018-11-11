@@ -7,6 +7,7 @@ namespace PraiseProvisionAPI.Models
 {
     public class Recommendation
     {
+        // recommedation model, the dto
         public int ID { get; set; }
         public string ChefFirstName { get; set; }
         public string ChefLastName { get; set; }

@@ -14,40 +14,54 @@ namespace PraiseProvisionAPI.Models.Services
     {
         private PraiseDBContext _context;
 
+        /// <summary>
+        /// bring in the context
+        /// </summary>
+        /// <param name="context">set the db context</param>
         public ChefService(PraiseDBContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// creates a chef
+        /// </summary>
+        /// <param name="chef">the chef to be created</param>
+        /// <returns>async return</returns>
         public async Task CreateChef(Chef chef)
         {
             await _context.AddAsync(chef);
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// removes a chef
+        /// </summary>
+        /// <param name="chef">the chef to remove</param>
+        /// <returns>async return</returns>
         public async Task DeleteChef(Chef chef)
         {
             _context.Chefs.Remove(chef);
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// gets the chef with an id
+        /// </summary>
+        /// <param name="id">the id of the chef to return</param>
+        /// <returns>the chef</returns>
         public async Task<Chef> GetChef(int id)
         {
             return await _context.Chefs.FirstOrDefaultAsync(x => x.ID == id);
         }
 
+        /// <summary>
+        /// returns all chefs
+        /// </summary>
+        /// <returns>a list of all the chefs</returns>
         public IEnumerable<Chef> GetChefs()
         {
             return _context.Chefs;
-        }
-
-        public async Task UpdateChef(int id, Chef chef)
-        {
-            if(GetChef(id) != null)
-            {
-                _context.Chefs.Update(chef);
-            }
-            await _context.SaveChangesAsync();
         }
     }
 }

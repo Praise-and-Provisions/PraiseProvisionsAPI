@@ -7,6 +7,7 @@ namespace PraiseProvisionAPI.Models.Interfaces
 {
     public interface IRecommendation
     {
+        // recommendations interface
         IEnumerable<Recommendation> GetRecommendations();
     }
 }
